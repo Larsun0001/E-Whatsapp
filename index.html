@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/output.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>WhatsApp By Emeka</title>
+</head>
+<body>
+    <section id="main-app" class="w-full h-dvh flex bg-lightBack relative">
+        <!-- Spash Screen -->
+        <div class="fixed flex top-0 left-0 right-0 bottom-0 z-10 items-center justify-center bg-white " id="splash_screen">
+            <img src="assets/whatapp logo.png" alt="" class="h-[11rem]">
+        </div>
+        <!-- Left Side -->
+        <div class="w-[15%] h-full flex flex-col justify-between items-center py-4 sm:w-[15%] md:w-[8%] lg:w-[6%] xl:w-[4%] 2xl:w-[3%]">
+            <!-- Top Icons -->
+            <div class="flex flex-col gap-5 items-center">
+                <div>
+                    <i class='bx bx-message-rounded-dots text-slate-900 text-lg bx-sm'></i>
+                </div>
+                <i class='bx bx-phone bx-sm'></i>
+                <i class='bx bx-chevron-up-circle bx-sm'></i>
+            </div>
+            <!-- Bottom Icons -->
+            <div class="flex flex-col gap-5 items-center"> 
+                <i class='bx bx-star bx-sm' ></i>
+                <div>
+                    <i class='bx bx-box bx-sm' ></i>
+                </div>
+                <i class='bx bx-cog bx-sm' ></i>
+                <div class="w-full h-[1.5rem] bg-slate-800 rounded-full">
+                    <img src="assets/man1.jpeg" alt="" class="rounded-full w-full h-full">
+                </div>
+            </div>
+        </div>
+        <!-- Right Side -->
+        <div class="w-[90%] bg-white h-full rounded-xl relative flex flex-col scrollbar-hide md:w-[35%] lg:w-[30%] xl:w-[25%]">
+            <!-- Right Header -->
+            <div class="flex flex-col gap-7 px-5 py-6 w-full h-[15%]">
+                <!-- Header Top -->
+                <div class="flex justify-between items-center">
+                    <h1 class="text-xl font-bold">Chats</h1>
+                    <!-- top header icons -->
+                    <div class="space-x-3">
+                        <i class='bx bxs-edit bx-sm'></i>
+                        <i class='bx bx-sort-down bx-sm' ></i>
+                    </div>
+                </div>
+                <!-- Header Bottom -->
+                <div class="w-full border-solid border-2 border-lightBack h-9 flex items-center gap-3 px-2 border-b-mainColor">
+                    <div>
+                        <i class='bx bx-search bx-xs scale-x-[-1]' ></i>
+                    </div>
+                    <input type="text"  placeholder="Search or start new chat" class="outline-none border-none w-[90%]">
+                </div>
+            </div>
+            <!-- User Message -->
+            <div class="h-[85%] overflow-y-auto scrollbar-hide">
+                <div class="min-h-[50rem] py-4 px-2 flex flex-col gap-4" id="display-message">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Chats -->
+        <div class="hidden fixed top-0 left-0 bottom-0 right-0 bg-lightBack md:block md:relative md:h-full md:w-[60%] lg:w-[70%] xl:w-[75%]" id="chat_section">
+            <div class="flex-col justify-between overflow-hidden h-full z-20">
+                <!-- Header -->
+                <div class="h-[8%] bg-white flex justify-between px-6 items-center w-full">
+                    <div class="flex gap-4 items-center">
+                        <div id="back-btn" class="cursor-pointer md:hidden">
+                            <i class='bx bx-arrow-back bx-xs' ></i>
+                        </div>
+                        <div class="h-10 w-10 rounded-full overflow-hidden">
+                            <img src="assets/davido.jpg" alt="profile" class="w-full h-full" id="phone_img">
+                        </div>
+                        <h1 class="font-semibold" id="phone_name">Ndukwe Emeka</h1>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <div class="flex">
+                            <div class="border-solid border-[1px] border-lightBack py-2 px-4 flex items-center justify-center">
+                                <i class='bx bx-video bx-xs md:bx-xs' ></i>
+                            </div>
+                            <div class="border-solid border-[1px] border-lightBack py-2 px-4 flex items-center justify-center">
+                                <i class='bx bx-phone bx-xs md:bx-xs' ></i>
+                            </div>
+                        </div>
+                        <i class='bx bx-search bx-xs scale-x-[-1] md:bx-xs' ></i>
+                    </div>
+                </div>
+                <!-- Chat -->
+                <div class="h-[86%] w-full overflow-y-auto scrollbar-hide" style="background-image: url(assets/mainpattern.png);">
+                    <!-- Empty message -->
+                    <div class="w-full p-4" id="empty-message">
+                        <p class="text-sm font-semibold text-msgColor flex gap-3 items-center bg-white px-4 py-2 mx-auto"> <span> <i class='bx bxs-message-x bx-xs text-msgColor' ></i></span>No Message Yet, Start a New Conversation</p>
+                    </div>
+                    <!-- Displaying all the chats here -->
+                    <div class="hidden min-h-[50rem] w-full flex-col px-[2rem] py-4 gap-1 md:px-[2rem] xl:px-[7rem]" id="show-chats">
+            
+                    </div>
+                </div>
+                <!-- Footer -->
+                <div class="h-[6%] w-full bg-white flex justify-between items-center px-4 md:overflow-hidden">
+                    <div class="flex items-center gap-6 flex-[2] md:gap-4 md:overflow-hidden">
+                        <i class='bx bx-smile bx-sm'></i>
+                        <i class='bx bx-link bx-sm'></i>
+                        <input type="text" id="message-box" placeholder="Type a message" class="outline-none border-none w-full py-2 px-2">
+                    </div>
+                    <div class="hidden" id="send-btn">
+                        <i class='bx bx-send cursor-pointer bx-sm'></i>
+                        </div>
+                        <div id="mic-btn">
+                            <i class='bx bx-microphone bx-sm' ></i>
+                        </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
